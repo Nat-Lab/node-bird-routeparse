@@ -1,0 +1,24 @@
+{
+  "name": "node-bird-routeparse",
+  "version": "0.0.1",
+  "description": "Generate JSON from bird's stdout.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nat-lab/node-bird-routeparse.git"
+  },
+  "keywords": [
+    "routing",
+    "route",
+    "bgp"
+  ],
+  "author": "nat <nat@nat.moe>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nat-lab/node-bird-routeparse/issues"
+  },
+  "homepage": "https://github.com/nat-lab/node-bird-routeparse#readme"
+}
