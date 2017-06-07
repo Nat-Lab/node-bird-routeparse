@@ -1,6 +1,6 @@
 {
   "name": "node-bird-routeparse",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Generate JSON from bird's stdout.",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/nat-lab/node-bird-routeparse/issues"
   },
-  "homepage": "https://github.com/nat-lab/node-bird-routeparse#readme"
+  "homepage": "https://github.com/nat-lab/node-bird-routeparse#readme",
+  "dependencies": {
+    "event-stream": "^3.3.4"
+  }
 }
