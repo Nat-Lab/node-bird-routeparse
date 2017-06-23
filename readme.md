@@ -6,7 +6,6 @@ Generate JSON from bird's stdout, if you nat-lab/node-bird-routedump use too muc
 ### Todo
 
 - Support recursive route
-- Support multipath
 
 ### Usage
 
