@@ -10,8 +10,7 @@ Generate JSON from bird's stdout, if you nat-lab/node-bird-routedump use too muc
 ### Usage
 
 ```
-root@router $ bird -v 'show route all' > routes.txt
-root@router $ node nbrp.js routes.txt routes.json
+root@router $ bird -v 'show route all' | node nbrp.js > routes.json
 ```
 
 ### Licenses

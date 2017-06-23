@@ -1,22 +1,21 @@
-var fs = require('fs'), util = require('util'), stream = require('stream'), es = require('event-stream');
+var util = require('util'), stream = require('stream'), es = require('event-stream');
 var args = process.argv.slice(2);
 
-var parse_route = function (infile, outfile) {
+var parse_route = function (outfile) {
   var ln = 0;
   //var routes = [];
   var isFieldHead = line => /^(\d{4})-/.test(line);
   var robj = {};
-  var ws = fs.createWriteStream(outfile);
-  ws.write('[');
+  process.stdout.write('[');
   var isFirst = true;
 
-  var read_stream = fs.createReadStream(infile).pipe(es.split()).pipe(es.mapSync(line => {
+  var read_stream = process.stdin.pipe(es.split()).pipe(es.mapSync(line => {
     read_stream.pause();
     ln++;
     try {
       if (ln % 100000 == 0) {
         var men = process.memoryUsage();
-        console.log(`Line ${ln}, rss: ${men.rss}, heapTotal: ${men.heapTotal}, heapUsed: ${men.heapUsed}`);
+        console.error(`Line ${ln}, rss: ${men.rss}, heapTotal: ${men.heapTotal}, heapUsed: ${men.heapUsed}`);
       }
       line = line.replace(/\s+/g, ' ');
       if (isFieldHead(line)) {
@@ -29,8 +28,8 @@ var parse_route = function (infile, outfile) {
               var this_line = JSON.stringify(robj);
               if (isFirst && this_line.length > 0) { // TODO: wtf? 
                 isFirst = false;
-                ws.write(JSON.stringify(robj));
-              } else ws.write(',' + JSON.stringify(robj));
+                process.stdout.write(JSON.stringify(robj));
+              } else process.stdout.write(',' + JSON.stringify(robj));
             }
             last = robj;
             robj = {};
@@ -70,13 +69,13 @@ var parse_route = function (infile, outfile) {
         }
       }
     } catch (e) {
-      console.log("err on line: " + ln, e)
+      console.error("err on line: " + ln, e)
     }
     read_stream.resume();
   }));
 
-  read_stream.on('end', () => ws.write(']'));
+  read_stream.on('end', () => process.stdout.write(']'));
 
 };
 
-parse_route(args[0], args[1]);
+parse_route();

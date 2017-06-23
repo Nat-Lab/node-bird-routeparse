@@ -1,6 +1,6 @@
 {
   "name": "node-bird-routeparse",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generate JSON from bird's stdout.",
   "main": "index.js",
   "scripts": {
