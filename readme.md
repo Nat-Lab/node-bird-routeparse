@@ -1,7 +1,7 @@
 node-bird-routeparse
 ---
 
-Generate JSON from bird's stdout, if you nat-lab/node-bird-routedump use too much of memory, try this one.
+Generate JSON from bird's stdout. 
 
 ### Todo
 
@@ -10,7 +10,10 @@ Generate JSON from bird's stdout, if you nat-lab/node-bird-routedump use too muc
 ### Usage
 
 ```
-root@router $ bird -v 'show route all' | node nbrp.js > routes.json
+root@router $ git clone https://github.com/Nat-Lab/node-bird-routeparse
+root@router $ cd node-bird-routeparse
+root@router $ npm i
+root@router $ bird -v 'show route all' | node index.js > routes.json
 ```
 
 ### Licenses

@@ -31,7 +31,7 @@ var parse_route = function (outfile) {
                 process.stdout.write(JSON.stringify(robj));
               } else process.stdout.write(',' + JSON.stringify(robj));
             }
-            last = robj;
+            var last = robj;
             robj = {};
             robj.route = rinfo[0] == '' ? last.route : rinfo[0];
             robj.via = rinfo[2];
