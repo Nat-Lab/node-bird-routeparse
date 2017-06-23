@@ -74,7 +74,10 @@ var parse_route = function (outfile) {
     read_stream.resume();
   }));
 
-  read_stream.on('end', () => process.stdout.write(']'));
+  read_stream.on('end', () => {
+    process.stdout.write((isFirst ? '' : ',') + JSON.stringify(robj));
+    process.stdout.write(']');
+  });
 
 };
 
